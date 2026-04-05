@@ -25,6 +25,15 @@
     ],
     "PostToolUse": [
       {
+        "matcher": "tool matches \"(Edit|Write)\" && tool_input.file_path matches \"\\\\.(ts|tsx|js|jsx)$\"",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "#!/bin/bash\ninput=$(cat)\nfile_path=$(echo \"$input\" | jq -r '.tool_input.file_path // \"\"')\nif [ -n \"$file_path\" ] && [ -f \"$file_path\" ]; then\n  bunx oxfmt \"$file_path\" 2>/dev/null || true\nfi"
+          }
+        ]
+      },
+      {
         "matcher": "tool matches \"(Edit|Write)\" && tool_input.file_path matches \"\\\\.(ts|tsx)$\"",
         "hooks": [
           {
