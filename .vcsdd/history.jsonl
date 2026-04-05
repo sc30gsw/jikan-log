@@ -1,0 +1,5 @@
+{"timestamp":"2026-04-05T02:36:02.797Z","event":"feature_created","featureName":"time-tracker","mode":"lean","language":"typescript"}
+{"timestamp":"2026-04-05T02:39:36.984Z","event":"phase_transition","featureName":"time-tracker","from":"init","to":"1a","iteration":1,"phase":"1a"}
+{"timestamp":"2026-04-05T02:40:51.939Z","event":"phase_transition","featureName":"time-tracker","from":"1a","to":"1b","iteration":1,"phase":"1b"}
+{"timestamp":"2026-04-05T02:54:53.496Z","event":"gate_recorded","featureName":"time-tracker","phase":"1c","verdict":"PASS","reviewedBy":"adversary"}
+{"timestamp":"2026-04-05T02:54:53.508Z","event":"phase_transition","featureName":"time-tracker","from":"1b","to":"1c","iteration":1,"phase":"1c"}

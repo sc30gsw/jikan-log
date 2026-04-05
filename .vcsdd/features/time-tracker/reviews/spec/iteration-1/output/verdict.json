@@ -1,0 +1,78 @@
+{
+  "reviewType": "spec",
+  "iteration": 1,
+  "dimensions": {
+    "spec_fidelity": {
+      "verdict": "FAIL",
+      "findings": [
+        {
+          "severity": "high",
+          "description": "EDGE-002 (timezone change), EDGE-003 (foreground notification), EDGE-005 (all categories deleted), EDGE-006 (extended offline reconciliation), EDGE-007 (rapid create debounce) are enumerated in the spec but have no corresponding PROP obligations in verification-architecture.md Section 4. Five of seven edge cases are verification orphans."
+        },
+        {
+          "severity": "high",
+          "description": "REQ-NFR-001 (calendar 300ms render) and REQ-NFR-002 (chart 500ms render) are mapped to PROP-014, which is a smoke/launch test. There is no performance benchmark proof obligation. These NFRs have measurable thresholds but no verification strategy that would actually measure them."
+        },
+        {
+          "severity": "medium",
+          "description": "REQ-ENTRY-006 specifies delete with confirmation dialog, but no PROP tests the confirmation UX or the consequence of cancelling the confirmation. PROP-005 only covers the data round-trip, not the user-facing delete flow."
+        },
+        {
+          "severity": "medium",
+          "description": "REQ-DATA-004 specifies last-write-wins with timestamps, but the spec does not define what constitutes the timestamp (client clock, server clock, hybrid logical clock). This is ambiguous enough to produce divergent implementations, especially given EDGE-002 timezone changes."
+        },
+        {
+          "severity": "medium",
+          "description": "REQ-NOTIF-002 (prompt user on notification fire), REQ-NOTIF-003 (tap notification opens pre-filled form), REQ-NOTIF-005 (no notifications when disabled), and REQ-NOTIF-006 (permission request) are all mapped to PROP-009, which only verifies scheduling and rescheduling. The notification-to-form flow and permission gating have no dedicated verification."
+        },
+        {
+          "severity": "medium",
+          "description": "REQ-CAT-001 (default categories list), REQ-CAT-002 (create custom category), REQ-CAT-003 (edit category updates associated entries display), and REQ-CAT-006 (drag-and-drop reorder) are all mapped to PROP-013, which only tests deletion guards. CRUD and reorder behavior have no proof obligation."
+        },
+        {
+          "severity": "low",
+          "description": "EDGE-001 states midnight-spanning entries are stored as a single entry but displayed as two. The spec does not clarify how chart aggregation handles this split: does the pie chart for Day 1 count only the pre-midnight portion, or the full entry? This could cause double-counting in REQ-CHART-001."
+        }
+      ]
+    },
+    "verification_readiness": {
+      "verdict": "FAIL",
+      "findings": [
+        {
+          "severity": "critical",
+          "description": "Five of seven edge cases (EDGE-002, EDGE-003, EDGE-005, EDGE-006, EDGE-007) have no proof obligation mapped in Section 4 of verification-architecture.md. Edge cases were identified as important enough to enumerate but are completely unverified."
+        },
+        {
+          "severity": "high",
+          "description": "PROP-013 is overloaded: it is the sole proof obligation for REQ-CAT-001 through REQ-CAT-006 (six requirements), but its description only covers deletion guards (REQ-CAT-004 and REQ-CAT-005). The remaining four category requirements have no meaningful verification coverage."
+        },
+        {
+          "severity": "high",
+          "description": "PROP-009 is overloaded: it covers REQ-NOTIF-001 through REQ-NOTIF-006 (six requirements), but only verifies scheduling and rescheduling. Permission gating (REQ-NOTIF-006), in-app prompting (REQ-NOTIF-002/003), and disable behavior (REQ-NOTIF-005) are not addressed."
+        },
+        {
+          "severity": "high",
+          "description": "REQ-NFR-001 and REQ-NFR-002 are performance requirements with explicit numeric thresholds (300ms, 500ms). They are mapped to PROP-014, a smoke test that only checks 'app launches without crash'. No performance measurement tooling or benchmark strategy is specified."
+        },
+        {
+          "severity": "high",
+          "description": "REQ-NFR-005 (per-user data isolation) is mapped to PROP-007 (authentication lifecycle). Auth lifecycle proves login/logout flow, not that User A cannot read User B's data. A dedicated proof obligation for cross-user data isolation is missing."
+        },
+        {
+          "severity": "medium",
+          "description": "REQ-API-001 (Elysia.js + Expo API routes) and REQ-API-004 (TanStack Query + optimistic updates) are mapped to PROP-008, which only covers input validation and Result pattern. The Elysia routing integration and optimistic update behavior have no verification."
+        },
+        {
+          "severity": "medium",
+          "description": "Purity boundary map lists 'notifications/scheduler' as impure with 'Unit tests with expo-notifications mock' strategy, but PROP-009 is classified as Tier 2 (Integration). The tier assignment contradicts the stated testing strategy in Section 1."
+        },
+        {
+          "severity": "low",
+          "description": "PROP-010 is mapped to REQ-CAL-005 (tap date header navigates to daily view) and REQ-CAL-007 (long-press opens quick-create), but PROP-010's description only mentions rendering entries at correct positions. Navigation and gesture interactions are distinct behaviors requiring separate verification."
+        }
+      ]
+    }
+  },
+  "overallVerdict": "FAIL",
+  "summary": "The behavioral spec enumerates requirements and edge cases comprehensively, but the verification architecture has significant traceability gaps. Five of seven edge cases lack proof obligations entirely. Multiple PROP entries are overloaded, covering 4-6 requirements each while only verifying a subset of behaviors. Performance NFRs have numeric thresholds but no performance verification strategy. Data isolation (REQ-NFR-005) is conflated with auth lifecycle. The spec itself has an ambiguity around sync conflict timestamp source (client vs server clock) that could produce divergent implementations."
+}
