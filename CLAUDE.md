@@ -38,27 +38,28 @@ tmux attach -t dev
 
 Prefer these over common alternatives:
 
-| Purpose | Library | Do NOT use |
-|---------|---------|-----------|
-| Validation | `valibot` | zod |
-| UI components | `HeroUI Native` (via `className` + Tailwind) | other RN UI libs |
-| API routes | `elysia` | express, hono |
-| Database | `@libsql/client` (Turso) | — |
-| Data fetching | `@tanstack/react-query` | — |
-| Error handling | `better-result` | try-catch |
+| Purpose        | Library                                      | Do NOT use       |
+| -------------- | -------------------------------------------- | ---------------- |
+| Validation     | `valibot`                                    | zod              |
+| UI components  | `HeroUI Native` (via `className` + Tailwind) | other RN UI libs |
+| API routes     | `elysia`                                     | express, hono    |
+| Database       | `@libsql/client` (Turso)                     | —                |
+| Data fetching  | `@tanstack/react-query`                      | —                |
+| Error handling | `better-result`                              | try-catch        |
 
 ## Environment Variables
 
-| Variable | Purpose |
-|----------|---------|
-| `EXPO_PUBLIC_TURSO_URL` | Turso database URL |
-| `EXPO_PUBLIC_TURSO_AUTH_TOKEN` | Turso auth token |
+| Variable                       | Purpose            |
+| ------------------------------ | ------------------ |
+| `EXPO_PUBLIC_TURSO_URL`        | Turso database URL |
+| `EXPO_PUBLIC_TURSO_AUTH_TOKEN` | Turso auth token   |
 
 > `EXPO_PUBLIC_` prefix exposes variables to the client bundle. Never put secrets in `EXPO_PUBLIC_` variables in production.
 
 ## Coding Standards
 
 Detailed rules are auto-loaded from `.claude/rules/`. Key references:
+
 - `typescript/better-result.md` — Result pattern (critical, no try-catch)
 - `typescript/react-conventions.md` — named exports, function declarations
 - `typescript/project-structure.md` — feature-based architecture, `~` alias
