@@ -1,0 +1,10 @@
+{
+  "id": "FIND-004",
+  "dimension": "structural_integrity",
+  "category": "spec_gap",
+  "severity": "medium",
+  "file": "src/features/time-entry/utils/detect-overlap.ts",
+  "line": 1,
+  "description": "The TimeEntry / TimeRange type is defined independently in four separate files: detect-overlap.ts (TimeRange), split-entry-at-midnight.ts (TimeEntry + SplitEntry), aggregate-by-category.ts (TimeEntry), and category-utils.ts (Category). There is no shared domain type module. This violates the SSoT (Single Source of Truth) principle required by the project's coding style rules. If the domain model changes (e.g., adding a timezone field per EDGE-002), every local type must be updated independently, risking drift.",
+  "recommendation": "Create a shared types module (e.g., src/features/time-entry/types/time-entry.ts) with the canonical TimeEntry type, and derive local types using Pick/Omit as the project's TypeScript conventions require."
+}

@@ -1,0 +1,10 @@
+{
+  "id": "FIND-003",
+  "dimension": "implementation_correctness",
+  "category": "requirement_mismatch",
+  "severity": "high",
+  "file": "src/features/chart/utils/aggregate-by-category.ts",
+  "line": 87,
+  "description": "filterByPeriod filters entries using only startTime (line 94: e.startTime.getTime() >= dayStart.getTime()). An entry that starts at 23:00 on day 1 and ends at 02:00 on day 2 would be included in day 1's daily filter but excluded from day 2's daily filter. This contradicts EDGE-001 which states 'For chart aggregation (pie/bar), each day's portion is counted toward that day only (no double-counting).' The spec requires that the portion belonging to day 2 (midnight to 02:00) is counted toward day 2 in chart aggregation, but filterByPeriod would exclude this entry entirely from a day-2 daily filter.",
+  "recommendation": "filterByPeriod should either (1) accept pre-split entries (require callers to run splitEntryAtMidnight before filtering), or (2) internally perform midnight splitting so that each day's portion is attributed correctly. Document the expected contract clearly."
+}

@@ -1,0 +1,10 @@
+{
+  "id": "FIND-006",
+  "dimension": "edge_case_coverage",
+  "category": "test_coverage",
+  "severity": "medium",
+  "file": "src/features/time-entry/utils/calculate-duration.ts",
+  "line": 4,
+  "description": "calculateDuration returns a negative number when end < start, but there is no test or guard for this case. Since calculateDuration is used by aggregateByCategory (which accumulates minutes), a malformed entry with endTime before startTime would silently subtract time from a category's total, violating PROP-003's invariant that no time is lost or duplicated. The test file only tests positive-duration and zero-duration cases.",
+  "recommendation": "Either (1) add a guard that throws or returns 0 for negative durations, or (2) add a test that documents the negative-return behavior as intentional. Given that aggregateByCategory depends on this function, option 1 is safer."
+}

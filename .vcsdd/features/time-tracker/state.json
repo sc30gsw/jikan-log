@@ -2,7 +2,7 @@
   "featureName": "time-tracker",
   "mode": "lean",
   "language": "typescript",
-  "currentPhase": "1c",
+  "currentPhase": "5",
   "phaseHistory": [
     {
       "from": "init",
@@ -18,12 +18,47 @@
       "from": "1b",
       "to": "1c",
       "timestamp": "2026-04-05T02:54:53.501Z"
+    },
+    {
+      "from": "1c",
+      "to": "2a",
+      "timestamp": "2026-04-05T02:59:02.270Z",
+      "sprint": 1
+    },
+    {
+      "from": "2a",
+      "to": "2b",
+      "timestamp": "2026-04-05T03:02:02.131Z",
+      "sprint": 2
+    },
+    {
+      "from": "2b",
+      "to": "2c",
+      "timestamp": "2026-04-05T03:04:30.947Z",
+      "sprint": 2
+    },
+    {
+      "from": "2c",
+      "to": "3",
+      "timestamp": "2026-04-05T03:11:38.585Z",
+      "sprint": 2
+    },
+    {
+      "from": "3",
+      "to": "5",
+      "timestamp": "2026-04-05T03:12:52.177Z",
+      "sprint": 2
     }
   ],
   "iterations": {
+    "3": 1,
+    "5": 1,
     "1a": 1,
     "1b": 1,
-    "1c": 1
+    "1c": 1,
+    "2a": 1,
+    "2b": 1,
+    "2c": 1
   },
   "proofObligations": [
     {
@@ -783,10 +818,57 @@
         "artifactPath": "specs/verification-architecture.md",
         "status": "active",
         "linkedBeads": []
+      },
+      {
+        "beadId": "BEAD-083",
+        "type": "test-case",
+        "artifactPath": "src/features/**/__tests__/detect-overlap.test.ts",
+        "status": "active",
+        "linkedBeads": []
+      },
+      {
+        "beadId": "BEAD-084",
+        "type": "test-case",
+        "artifactPath": "src/features/**/__tests__/split-entry-at-midnight.test.ts",
+        "status": "active",
+        "linkedBeads": []
+      },
+      {
+        "beadId": "BEAD-085",
+        "type": "test-case",
+        "artifactPath": "src/features/**/__tests__/calculate-duration.test.ts",
+        "status": "active",
+        "linkedBeads": []
+      },
+      {
+        "beadId": "BEAD-086",
+        "type": "test-case",
+        "artifactPath": "src/features/**/__tests__/aggregate-by-category.test.ts",
+        "status": "active",
+        "linkedBeads": []
+      },
+      {
+        "beadId": "BEAD-087",
+        "type": "test-case",
+        "artifactPath": "src/features/**/__tests__/time-entry-schema.test.ts",
+        "status": "active",
+        "linkedBeads": []
+      },
+      {
+        "beadId": "BEAD-088",
+        "type": "test-case",
+        "artifactPath": "src/features/**/__tests__/category-utils.test.ts",
+        "status": "active",
+        "linkedBeads": []
       }
     ]
   },
   "gates": {
+    "3": {
+      "verdict": "PASS",
+      "timestamp": "2026-04-05T03:12:52.160Z",
+      "reviewedBy": "adversary"
+    },
     "1c": {
       "verdict": "PASS",
       "timestamp": "2026-04-05T02:54:53.488Z",
@@ -795,7 +877,7 @@
       "adversaryReviewedAt": "2026-04-05T02:54:53.488Z"
     }
   },
-  "sprintCount": 0,
+  "sprintCount": 2,
   "createdAt": "2026-04-05T02:36:02.793Z",
-  "updatedAt": "2026-04-05T02:54:53.501Z"
+  "updatedAt": "2026-04-05T03:12:52.177Z"
 }

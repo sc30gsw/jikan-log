@@ -1,0 +1,31 @@
+{
+  "reviewType": "implementation",
+  "featureName": "time-tracker",
+  "sprintNumber": 2,
+  "artifactsToReview": {
+    "spec": ["specs/behavioral-spec.md", "specs/verification-architecture.md"],
+    "tests": [
+      "src/features/time-entry/utils/__tests__/detect-overlap.test.ts",
+      "src/features/time-entry/utils/__tests__/split-entry-at-midnight.test.ts",
+      "src/features/time-entry/utils/__tests__/calculate-duration.test.ts",
+      "src/features/time-entry/schemas/__tests__/time-entry-schema.test.ts",
+      "src/features/chart/utils/__tests__/aggregate-by-category.test.ts",
+      "src/features/category/utils/__tests__/category-utils.test.ts"
+    ],
+    "source": [
+      "src/features/time-entry/utils/detect-overlap.ts",
+      "src/features/time-entry/utils/split-entry-at-midnight.ts",
+      "src/features/time-entry/utils/calculate-duration.ts",
+      "src/features/time-entry/schemas/time-entry-schema.ts",
+      "src/features/chart/utils/aggregate-by-category.ts",
+      "src/features/category/utils/category-utils.ts"
+    ]
+  },
+  "reviewDimensions": [
+    "spec_fidelity",
+    "edge_case_coverage",
+    "implementation_correctness",
+    "structural_integrity",
+    "verification_readiness"
+  ]
+}

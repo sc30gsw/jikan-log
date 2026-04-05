@@ -1,0 +1,10 @@
+{
+  "id": "FIND-005",
+  "dimension": "spec_fidelity",
+  "category": "security_surface",
+  "severity": "low",
+  "file": "src/features/time-entry/schemas/time-entry-schema.ts",
+  "line": 26,
+  "description": "The categorySchema validates that color is a non-empty string (v.string()) but does not validate it as a valid hex color code. REQ-CAT-002 states categories have a 'color', and the getDefaultCategories function uses hex color codes. Without validation, any arbitrary string (e.g., 'javascript:alert(1)') could be stored as a color value and later injected into style attributes.",
+  "recommendation": "Add a v.pipe(v.string(), v.regex(/^#[0-9A-Fa-f]{6}$/)) constraint to the color field in categorySchema to enforce valid hex color format."
+}

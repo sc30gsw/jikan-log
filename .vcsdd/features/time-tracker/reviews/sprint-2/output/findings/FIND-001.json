@@ -1,0 +1,10 @@
+{
+  "id": "FIND-001",
+  "dimension": "verification_readiness",
+  "category": "verification_tool_mismatch",
+  "severity": "high",
+  "file": "src/features/time-entry/utils/__tests__/detect-overlap.test.ts",
+  "line": 24,
+  "description": "PROP-001 in verification-architecture.md explicitly requires property-based tests via fast-check for overlap detection symmetry and reflexivity. The current tests are purely example-based with hand-picked values. Similarly, PROP-002 (splitEntryAtMidnight duration preservation) and PROP-003 (aggregation total preservation) are specified as Tier 3 property-based verification candidates but are tested only with example-based assertions. This means the stated verification strategy is not implemented.",
+  "recommendation": "Add fast-check property-based tests for PROP-001 (arbitrary TimeRange pairs verifying symmetry, reflexivity, and correctness), PROP-002 (arbitrary entries verifying duration preservation and non-overlap of splits), and PROP-003 (arbitrary entry lists verifying aggregation total preservation). Example-based tests can remain as supplementary."
+}

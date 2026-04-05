@@ -3,3 +3,12 @@
 {"timestamp":"2026-04-05T02:40:51.939Z","event":"phase_transition","featureName":"time-tracker","from":"1a","to":"1b","iteration":1,"phase":"1b"}
 {"timestamp":"2026-04-05T02:54:53.496Z","event":"gate_recorded","featureName":"time-tracker","phase":"1c","verdict":"PASS","reviewedBy":"adversary"}
 {"timestamp":"2026-04-05T02:54:53.508Z","event":"phase_transition","featureName":"time-tracker","from":"1b","to":"1c","iteration":1,"phase":"1c"}
+{"timestamp":"2026-04-05T02:59:02.318Z","event":"phase_transition","featureName":"time-tracker","from":"1c","to":"2a","iteration":1,"phase":"2a"}
+{"timestamp":"2026-04-05T02:59:02.329Z","event":"sprint_started","featureName":"time-tracker","sprintNumber":1,"phase":"2a"}
+{"timestamp":"2026-04-05T02:59:02.439Z","event":"sprint_started","featureName":"time-tracker","sprintNumber":2}
+{"timestamp":"2026-04-05T03:02:02.156Z","event":"phase_transition","featureName":"time-tracker","from":"2a","to":"2b","iteration":1,"phase":"2b"}
+{"timestamp":"2026-04-05T03:04:30.953Z","event":"phase_transition","featureName":"time-tracker","from":"2b","to":"2c","iteration":1,"phase":"2c"}
+{"timestamp":"2026-04-05T03:08:31.605Z","event":"gate_recorded","featureName":"time-tracker","phase":"3","verdict":"FAIL","reviewedBy":"adversary"}
+{"timestamp":"2026-04-05T03:11:38.592Z","event":"phase_transition","featureName":"time-tracker","from":"2c","to":"3","iteration":1,"phase":"3"}
+{"timestamp":"2026-04-05T03:12:52.172Z","event":"gate_recorded","featureName":"time-tracker","phase":"3","verdict":"PASS","reviewedBy":"adversary"}
+{"timestamp":"2026-04-05T03:12:52.186Z","event":"phase_transition","featureName":"time-tracker","from":"3","to":"5","iteration":1,"phase":"5"}

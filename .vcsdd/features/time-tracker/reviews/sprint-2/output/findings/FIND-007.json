@@ -1,0 +1,10 @@
+{
+  "id": "FIND-007",
+  "dimension": "verification_readiness",
+  "category": "test_quality",
+  "severity": "medium",
+  "file": "src/features/chart/utils/__tests__/aggregate-by-category.test.ts",
+  "line": 97,
+  "description": "The buildBarChartData test at line 104 asserts 'result.length >= 2' which is a weak assertion -- it would pass even if the function returned 100 items. The buildPieChartData test checks percentages are 'close to 50' but does not verify that total minutes across all slices equals the sum of input entry durations (the core PROP-003 invariant). The bar chart test does not verify the total preservation property at all.",
+  "recommendation": "Add explicit assertions that sum(pieSlices.map(s => s.minutes)) === sum(entries.map(e => duration(e))) and sum(barItems.map(b => b.minutes)) === sum(entries.map(e => duration(e)))."
+}

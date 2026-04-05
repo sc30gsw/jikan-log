@@ -1,0 +1,10 @@
+{
+  "id": "FIND-008",
+  "dimension": "edge_case_coverage",
+  "category": "test_coverage",
+  "severity": "low",
+  "file": "src/features/chart/utils/__tests__/aggregate-by-category.test.ts",
+  "line": 115,
+  "description": "filterByPeriod tests do not cover the edge case of entries that span midnight boundaries in daily/weekly filtering. No test exists for an entry starting on day 1 and ending on day 2 -- which is exactly the scenario described in EDGE-001. The current tests only use entries that start and end within the same day.",
+  "recommendation": "Add test cases for filterByPeriod with entries crossing midnight to verify behavior and document whether callers are expected to pre-split entries."
+}

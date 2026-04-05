@@ -1,0 +1,10 @@
+{
+  "id": "FIND-002",
+  "dimension": "implementation_correctness",
+  "category": "security_surface",
+  "severity": "medium",
+  "file": "src/features/time-entry/schemas/time-entry-schema.ts",
+  "line": 10,
+  "description": "The timeEntrySchema accepts any string for startTime and endTime fields (v.string()). There is no validation that the string is a parseable date (e.g. ISO 8601). If an invalid date string is provided, new Date(input.startTime).getTime() returns NaN. The subsequent comparisons (end > start) happen to reject NaN inputs, but this is accidental -- the error message will say 'endTime must be after startTime' rather than 'invalid date format', which is misleading. More critically, a string like '9999-99-99T00:00:00Z' may parse differently across JS engines.",
+  "recommendation": "Add a v.pipe(v.string(), v.isoTimestamp()) or equivalent custom check that validates the string parses to a valid Date before the time-comparison checks. This makes the schema explicitly reject malformed date strings with a clear error message."
+}

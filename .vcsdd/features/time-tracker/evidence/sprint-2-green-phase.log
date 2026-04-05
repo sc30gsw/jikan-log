@@ -1,0 +1,21 @@
+target-feature-tests: PASS
+regression-baseline: PASS
+total-test-suites: 6
+total-test-cases: 65
+all-passing: true
+phase: post-adversary-fixes
+
+---
+
+Fixes applied:
+- FIND-002: Added ISO date string validation to timeEntrySchema
+- FIND-003: filterByPeriod now clips cross-midnight entries to selected day range
+- FIND-004: Created SSoT types at src/features/time-entry/types/time-entry.ts
+- FIND-006: calculateDuration guards against negative values (returns 0)
+- FIND-007: Strengthened chart test assertions (total-time invariant)
+
+ RUN  v4.1.2
+
+ Test Files  6 passed (6)
+      Tests  65 passed (65)
+   Duration  1.68s

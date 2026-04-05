@@ -1,0 +1,37 @@
+new-feature-tests: FAIL
+regression-baseline: PASS
+total-test-suites: 6
+total-test-cases: 39
+
+---
+
+ RUN  v4.1.2 /Users/kakikaito/dev/react-native-projects/jikan-log
+
+ FAIL  src/features/category/utils/__tests__/category-utils.test.ts
+Error: Cannot find module '~/src/features/category/utils/category-utils'
+Serialized Error: { code: 'ERR_MODULE_NOT_FOUND' }
+
+ FAIL  src/features/chart/utils/__tests__/aggregate-by-category.test.ts
+Error: Cannot find module '~/src/features/chart/utils/aggregate-by-category'
+Serialized Error: { code: 'ERR_MODULE_NOT_FOUND' }
+
+ FAIL  src/features/time-entry/schemas/__tests__/time-entry-schema.test.ts
+Error: Cannot find module '~/src/features/time-entry/schemas/time-entry-schema'
+Serialized Error: { code: 'ERR_MODULE_NOT_FOUND' }
+
+ FAIL  src/features/time-entry/utils/__tests__/calculate-duration.test.ts
+Error: Cannot find module '~/src/features/time-entry/utils/calculate-duration'
+Serialized Error: { code: 'ERR_MODULE_NOT_FOUND' }
+
+ FAIL  src/features/time-entry/utils/__tests__/detect-overlap.test.ts
+Error: Cannot find module '~/src/features/time-entry/utils/detect-overlap'
+Serialized Error: { code: 'ERR_MODULE_NOT_FOUND' }
+
+ FAIL  src/features/time-entry/utils/__tests__/split-entry-at-midnight.test.ts
+Error: Cannot find module '~/src/features/time-entry/utils/calculate-duration'
+Serialized Error: { code: 'ERR_MODULE_NOT_FOUND' }
+
+ Test Files  6 failed (6)
+      Tests  no tests
+   Start at  11:59:28
+   Duration  6.57s
