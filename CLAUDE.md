@@ -18,6 +18,8 @@ bunx <tool>       # run tools directly
 bun run check     # lint + format check + tsc (run before committing)
 bun run fix       # auto-fix lint + format issues
 bun run tsc       # type check only
+bun run test      # run tests (vitest watch mode)
+bun run test:run  # run tests once
 ```
 
 ## Expo Dev Server
