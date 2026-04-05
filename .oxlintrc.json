@@ -1,0 +1,23 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oxc-project/oxc/main/npm/oxlint/configuration_schema.json",
+  "plugins": ["react"],
+  "categories": {
+    "correctness": "error"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "no-console": "warn"
+  },
+  "overrides": [
+    {
+      "files": ["app.json", "*.config.js", "*.config.ts"],
+      "rules": {
+        "no-default-export": "off"
+      }
+    }
+  ],
+  "ignorePatterns": ["node_modules", ".expo", "dist", "*.d.ts"]
+}

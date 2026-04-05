@@ -1,0 +1,15 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 100,
+  "tabWidth": 2,
+  "singleQuote": true,
+  "semi": true,
+  "trailingComma": "all",
+  "sortImports": {
+    "partitionByComment": true
+  },
+  "sortPackageJson": {
+    "sortScripts": true
+  },
+  "ignorePatterns": ["node_modules", ".expo", "dist"]
+}
